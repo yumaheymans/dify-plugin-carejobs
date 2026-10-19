@@ -1,0 +1,83 @@
+identity:
+  name: "get_healthcare_pay"
+  author: "yumaheymans"
+  label:
+    en_US: "Get Healthcare Pay"
+description:
+  human:
+    en_US: "What healthcare jobs post as hourly pay today, by kind of job and employer: the median and typical range, measured from the rates open jobs state (before shift differentials and bonuses)."
+  llm: "What healthcare jobs post as pay today, measured from the hourly rates open jobs state (before shift differentials and bonuses): with no arguments, the median and typical range for every kind of job (a market rate only where at least three employers post one); with a kind of job, that job's pay and the employers that post the most for it; with an employer, its pay overall and by kind of job; with both, that employer's pay for that job."
+parameters:
+  - name: kind
+    type: select
+    required: false
+    label:
+      en_US: "Kind of job"
+    human_description:
+      en_US: "Optional. With a kind of job: that job's pay and the employers that post the most for it."
+    llm_description: "Kind of job. Leave empty for every kind. One of: 'nurses' (Nurses), 'nurse-practitioners' (NPs & PAs), 'physicians' (Doctors), 'nursing-assistants' (CNAs & PCTs), 'caregivers' (Caregivers), 'therapy-rehab' (Therapy & rehab), 'mental-health' (Mental health), 'pharmacy' (Pharmacy), 'imaging' (Imaging), 'lab' (Lab), 'surgical-techs' (Surgical), 'emts-paramedics' (EMS), 'medical-assistants' (Medical assistants), 'dental' (Dental), 'admin' (Front desk & admin), 'allied-health' (Allied health), 'ai-training' (AI training)."
+    form: llm
+    options:
+      - value: "nurses"
+        label:
+          en_US: "Nurses"
+      - value: "nurse-practitioners"
+        label:
+          en_US: "NPs & PAs"
+      - value: "physicians"
+        label:
+          en_US: "Doctors"
+      - value: "nursing-assistants"
+        label:
+          en_US: "CNAs & PCTs"
+      - value: "caregivers"
+        label:
+          en_US: "Caregivers"
+      - value: "therapy-rehab"
+        label:
+          en_US: "Therapy & rehab"
+      - value: "mental-health"
+        label:
+          en_US: "Mental health"
+      - value: "pharmacy"
+        label:
+          en_US: "Pharmacy"
+      - value: "imaging"
+        label:
+          en_US: "Imaging"
+      - value: "lab"
+        label:
+          en_US: "Lab"
+      - value: "surgical-techs"
+        label:
+          en_US: "Surgical"
+      - value: "emts-paramedics"
+        label:
+          en_US: "EMS"
+      - value: "medical-assistants"
+        label:
+          en_US: "Medical assistants"
+      - value: "dental"
+        label:
+          en_US: "Dental"
+      - value: "admin"
+        label:
+          en_US: "Front desk & admin"
+      - value: "allied-health"
+        label:
+          en_US: "Allied health"
+      - value: "ai-training"
+        label:
+          en_US: "AI training"
+  - name: employer
+    type: string
+    required: false
+    label:
+      en_US: "Employer"
+    human_description:
+      en_US: "Optional. With an employer: its pay overall and by kind of job. With a kind too: its pay for that job."
+    llm_description: "An employer, AI-training program or job board: its slug (for example 'hca-healthcare', 'kaiser-permanente') or its name. List Healthcare Employers finds the slugs."
+    form: llm
+extra:
+  python:
+    source: tools/get_healthcare_pay.py

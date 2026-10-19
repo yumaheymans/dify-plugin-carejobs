@@ -1,0 +1,17 @@
+# Keep the package to runtime files only.
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.env.*
+.git/
+.github/
+.gitignore
+.difyignore
+.DS_Store
+.ruff_cache/
+.idea/
+.vscode/
+*.difypkg
+tests/

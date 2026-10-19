@@ -1,0 +1,22 @@
+identity:
+  name: "get_healthcare_employer"
+  author: "yumaheymans"
+  label:
+    en_US: "Get Healthcare Employer"
+description:
+  human:
+    en_US: "One healthcare employer, AI-training program or job board: what it is, where it hires, its open jobs by kind of job, the pay its jobs post, and links to its page and open jobs."
+  llm: "One employer (or AI-training program or job board): what it is, where it hires, its open jobs right now by kind of job, the pay its jobs post, its newest and best-paid open jobs, and links to its page and every open job."
+parameters:
+  - name: employer
+    type: string
+    required: true
+    label:
+      en_US: "Employer"
+    human_description:
+      en_US: "The employer, AI-training program or job board: its slug (for example kaiser-permanente) or its name."
+    llm_description: "An employer, AI-training program or job board: its slug (for example 'hca-healthcare', 'kaiser-permanente') or its name. List Healthcare Employers finds the slugs."
+    form: llm
+extra:
+  python:
+    source: tools/get_healthcare_employer.py

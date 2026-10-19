@@ -1,0 +1,33 @@
+version: 0.0.1
+type: plugin
+author: yumaheymans
+name: carejobs
+label:
+  en_US: CareJobs.Now Healthcare Jobs
+description:
+  en_US: Search open US healthcare jobs, posted pay, employers and job-market stats from CareJobs.Now, a free healthcare job board. No API key needed.
+icon: icon.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/carejobs.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: 1.0.0
+created_at: 2026-10-19T20:31:29+02:00
+privacy: PRIVACY.md
+repo: https://github.com/yumaheymans/dify-plugin-carejobs
+contact: hello@carejobs.now
+network:
+  domains:
+    - carejobs.now
+verified: false

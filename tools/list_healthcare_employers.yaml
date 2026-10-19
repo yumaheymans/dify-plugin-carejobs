@@ -1,0 +1,185 @@
+identity:
+  name: "list_healthcare_employers"
+  author: "yumaheymans"
+  label:
+    en_US: "List Healthcare Employers"
+description:
+  human:
+    en_US: "Find the hospitals, health systems, clinic groups and care companies whose jobs CareJobs.Now reads, most open jobs first, filtered by name, kind of care, state or kind of job."
+  llm: "The hospitals, health systems, clinic groups and care companies whose jobs CareJobs.Now reads, most open jobs first, with where each hires, its open jobs and its posted pay. Filter by name, kind of care, US state (employers with open jobs there) or kind of job (employers with open jobs of it). Also lists the AI-training programs and the job boards read, as such. Use it to find an employer's slug for the other tools."
+parameters:
+  - name: query
+    type: string
+    required: false
+    label:
+      en_US: "Name contains"
+    human_description:
+      en_US: "Part of the employer name, for example Kaiser, children or dialysis."
+    llm_description: "Part of the name, e.g. 'Kaiser', 'children', 'dialysis'."
+    form: llm
+  - name: type
+    type: select
+    required: false
+    label:
+      en_US: "Type of entry"
+    human_description:
+      en_US: "Employers (the default), AI-training programs, or the job boards CareJobs.Now also reads."
+    llm_description: "'employer' (hospitals, clinics and care companies; the default without a query), 'ai-program' (programs paying health professionals for remote AI work) or 'job-board' (sources of other employers' jobs)."
+    form: llm
+    options:
+      - value: "employer"
+        label:
+          en_US: "Employers (hospitals, clinics, care companies)"
+      - value: "ai-program"
+        label:
+          en_US: "AI-training programs"
+      - value: "job-board"
+        label:
+          en_US: "Job boards"
+  - name: care
+    type: select
+    required: false
+    label:
+      en_US: "Kind of care"
+    human_description:
+      en_US: "Narrow to one kind of care, for example Home health & hospice or Children's hospitals."
+    llm_description: "Kind of care, one of: 'health-system' (Hospitals & health systems), 'childrens-hospital' (Children's hospitals), 'outpatient' (Clinics, primary & urgent care), 'specialty-care' (Specialty & physician practices), 'behavioral-health' (Mental health care), 'autism-care' (Autism & ABA therapy), 'home-care' (Home health & hospice), 'senior-care' (Senior living), 'rehab' (Physical therapy & rehab), 'dental' (Dental), 'pharmacy-retail' (Pharmacy & retail health), 'kidney-care' (Dialysis & kidney care), 'labs-imaging' (Labs & imaging), 'telehealth' (Virtual care), 'staffing' (Travel nursing & staffing agencies), 'ai-training' (AI training programs), 'job-boards' (Job boards we also read)."
+    form: llm
+    options:
+      - value: "health-system"
+        label:
+          en_US: "Hospitals & health systems"
+      - value: "childrens-hospital"
+        label:
+          en_US: "Children's hospitals"
+      - value: "outpatient"
+        label:
+          en_US: "Clinics, primary & urgent care"
+      - value: "specialty-care"
+        label:
+          en_US: "Specialty & physician practices"
+      - value: "behavioral-health"
+        label:
+          en_US: "Mental health care"
+      - value: "autism-care"
+        label:
+          en_US: "Autism & ABA therapy"
+      - value: "home-care"
+        label:
+          en_US: "Home health & hospice"
+      - value: "senior-care"
+        label:
+          en_US: "Senior living"
+      - value: "rehab"
+        label:
+          en_US: "Physical therapy & rehab"
+      - value: "dental"
+        label:
+          en_US: "Dental"
+      - value: "pharmacy-retail"
+        label:
+          en_US: "Pharmacy & retail health"
+      - value: "kidney-care"
+        label:
+          en_US: "Dialysis & kidney care"
+      - value: "labs-imaging"
+        label:
+          en_US: "Labs & imaging"
+      - value: "telehealth"
+        label:
+          en_US: "Virtual care"
+      - value: "staffing"
+        label:
+          en_US: "Travel nursing & staffing agencies"
+      - value: "ai-training"
+        label:
+          en_US: "AI training programs"
+      - value: "job-boards"
+        label:
+          en_US: "Job boards we also read"
+  - name: state
+    type: string
+    required: false
+    label:
+      en_US: "US state"
+    human_description:
+      en_US: "Only employers with open jobs in this US state: two-letter code (TX) or name (Texas)."
+    llm_description: "A US state: its two-letter code (for example 'TX', 'NY') or its name ('Texas'). Only employers with open jobs there."
+    form: llm
+  - name: kind
+    type: select
+    required: false
+    label:
+      en_US: "Kind of job"
+    human_description:
+      en_US: "Only employers with open jobs of this kind."
+    llm_description: "Only employers with open jobs of this kind. One of: 'nurses' (Nurses), 'nurse-practitioners' (NPs & PAs), 'physicians' (Doctors), 'nursing-assistants' (CNAs & PCTs), 'caregivers' (Caregivers), 'therapy-rehab' (Therapy & rehab), 'mental-health' (Mental health), 'pharmacy' (Pharmacy), 'imaging' (Imaging), 'lab' (Lab), 'surgical-techs' (Surgical), 'emts-paramedics' (EMS), 'medical-assistants' (Medical assistants), 'dental' (Dental), 'admin' (Front desk & admin), 'allied-health' (Allied health), 'ai-training' (AI training)."
+    form: llm
+    options:
+      - value: "nurses"
+        label:
+          en_US: "Nurses"
+      - value: "nurse-practitioners"
+        label:
+          en_US: "NPs & PAs"
+      - value: "physicians"
+        label:
+          en_US: "Doctors"
+      - value: "nursing-assistants"
+        label:
+          en_US: "CNAs & PCTs"
+      - value: "caregivers"
+        label:
+          en_US: "Caregivers"
+      - value: "therapy-rehab"
+        label:
+          en_US: "Therapy & rehab"
+      - value: "mental-health"
+        label:
+          en_US: "Mental health"
+      - value: "pharmacy"
+        label:
+          en_US: "Pharmacy"
+      - value: "imaging"
+        label:
+          en_US: "Imaging"
+      - value: "lab"
+        label:
+          en_US: "Lab"
+      - value: "surgical-techs"
+        label:
+          en_US: "Surgical"
+      - value: "emts-paramedics"
+        label:
+          en_US: "EMS"
+      - value: "medical-assistants"
+        label:
+          en_US: "Medical assistants"
+      - value: "dental"
+        label:
+          en_US: "Dental"
+      - value: "admin"
+        label:
+          en_US: "Front desk & admin"
+      - value: "allied-health"
+        label:
+          en_US: "Allied health"
+      - value: "ai-training"
+        label:
+          en_US: "AI training"
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: "Number of results"
+    human_description:
+      en_US: "How many entries to return (1 to 100)."
+    llm_description: "How many entries to return (1 to 100). Default 20."
+    form: llm
+    default: 20
+    min: 1
+    max: 100
+    precision: 0
+extra:
+  python:
+    source: tools/list_healthcare_employers.py

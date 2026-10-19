@@ -1,0 +1,13 @@
+identity:
+  name: "get_healthcare_job_market"
+  author: "yumaheymans"
+  label:
+    en_US: "Get Healthcare Job Market"
+description:
+  human:
+    en_US: "How many US healthcare jobs are open right now, how many were first listed in the last 7 days, and the open jobs by kind of job, by state and by employer."
+  llm: "How many healthcare jobs are open right now, how many were first listed in the last 7 days and how many are listed per week, with the open jobs by kind of job, by US state and by employer (with each employer's slug for the other tools). Takes no arguments."
+parameters: []
+extra:
+  python:
+    source: tools/get_healthcare_job_market.py

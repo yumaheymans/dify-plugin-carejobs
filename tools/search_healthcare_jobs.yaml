@@ -1,0 +1,156 @@
+identity:
+  name: "search_healthcare_jobs"
+  author: "yumaheymans"
+  label:
+    en_US: "Search Healthcare Jobs"
+description:
+  human:
+    en_US: "Search open US healthcare jobs (nurses, CNAs, doctors, NPs and PAs, therapists, techs, pharmacy, caregivers and more) by keyword, kind of job, state, employer, remote and posted pay. Each result names its employer and links to its page on CareJobs.Now."
+  llm: "Search the open healthcare jobs at more than 2,000 US hospitals, health systems, clinic groups and care companies (nurses, CNAs, doctors, NPs and PAs, therapists, techs, pharmacy, caregivers, front office and more), plus the listings of the job boards the site reads, each naming its employer. Returns each job's title, employer, kind of job, posted pay, shift where the posting states it, place, and a link to its page on CareJobs.Now, where the user applies. All filters are optional."
+parameters:
+  - name: query
+    type: string
+    required: false
+    label:
+      en_US: "Keywords"
+    human_description:
+      en_US: "Words every job must carry in its title, place, department or schedule, for example ICU, night, travel, pediatric or Houston."
+    llm_description: "Words every job must carry in its title, place, department or schedule, e.g. 'ICU', 'night', 'travel', 'pediatric', 'Houston'. Leave empty for no keyword filter."
+    form: llm
+  - name: kind
+    type: select
+    required: false
+    label:
+      en_US: "Kind of job"
+    human_description:
+      en_US: "Kind of healthcare job, for example Nurses or CNAs & PCTs."
+    llm_description: "Kind of job. One of: 'nurses' (Nurses), 'nurse-practitioners' (NPs & PAs), 'physicians' (Doctors), 'nursing-assistants' (CNAs & PCTs), 'caregivers' (Caregivers), 'therapy-rehab' (Therapy & rehab), 'mental-health' (Mental health), 'pharmacy' (Pharmacy), 'imaging' (Imaging), 'lab' (Lab), 'surgical-techs' (Surgical), 'emts-paramedics' (EMS), 'medical-assistants' (Medical assistants), 'dental' (Dental), 'admin' (Front desk & admin), 'allied-health' (Allied health), 'ai-training' (AI training)."
+    form: llm
+    options:
+      - value: "nurses"
+        label:
+          en_US: "Nurses"
+      - value: "nurse-practitioners"
+        label:
+          en_US: "NPs & PAs"
+      - value: "physicians"
+        label:
+          en_US: "Doctors"
+      - value: "nursing-assistants"
+        label:
+          en_US: "CNAs & PCTs"
+      - value: "caregivers"
+        label:
+          en_US: "Caregivers"
+      - value: "therapy-rehab"
+        label:
+          en_US: "Therapy & rehab"
+      - value: "mental-health"
+        label:
+          en_US: "Mental health"
+      - value: "pharmacy"
+        label:
+          en_US: "Pharmacy"
+      - value: "imaging"
+        label:
+          en_US: "Imaging"
+      - value: "lab"
+        label:
+          en_US: "Lab"
+      - value: "surgical-techs"
+        label:
+          en_US: "Surgical"
+      - value: "emts-paramedics"
+        label:
+          en_US: "EMS"
+      - value: "medical-assistants"
+        label:
+          en_US: "Medical assistants"
+      - value: "dental"
+        label:
+          en_US: "Dental"
+      - value: "admin"
+        label:
+          en_US: "Front desk & admin"
+      - value: "allied-health"
+        label:
+          en_US: "Allied health"
+      - value: "ai-training"
+        label:
+          en_US: "AI training"
+  - name: employer
+    type: string
+    required: false
+    label:
+      en_US: "Employer"
+    human_description:
+      en_US: "An employer, AI-training program or job board: its slug (for example hca-healthcare) or its name."
+    llm_description: "An employer, AI-training program or job board: its slug (for example 'hca-healthcare', 'kaiser-permanente') or its name. List Healthcare Employers finds the slugs."
+    form: llm
+  - name: state
+    type: string
+    required: false
+    label:
+      en_US: "US state"
+    human_description:
+      en_US: "A US state: two-letter code (TX) or name (Texas)."
+    llm_description: "A US state: its two-letter code (for example 'TX', 'NY') or its name ('Texas')."
+    form: llm
+  - name: remote
+    type: boolean
+    required: false
+    label:
+      en_US: "Remote only"
+    human_description:
+      en_US: "Only remote (work-from-home) jobs, such as telehealth, case management, coding and billing."
+    llm_description: "Set true to get only remote (work-from-home) jobs, such as telehealth, case management, coding and billing."
+    form: llm
+    default: false
+  - name: min_hourly_usd
+    type: number
+    required: false
+    label:
+      en_US: "Minimum hourly pay (USD)"
+    human_description:
+      en_US: "Only jobs whose posted hourly ceiling reaches this many US dollars."
+    llm_description: "Only jobs whose posted hourly ceiling reaches this many US dollars (1 to 1000)."
+    form: llm
+    min: 1
+    max: 1000
+    precision: 0
+  - name: sort
+    type: select
+    required: false
+    label:
+      en_US: "Sort order"
+    human_description:
+      en_US: "How to order the jobs."
+    llm_description: "How to order the jobs: 'mixed' (the board's order, employers interleaved), 'newest' or 'highest_pay'."
+    form: llm
+    default: mixed
+    options:
+      - value: "mixed"
+        label:
+          en_US: "Mixed (the board's order, employers interleaved)"
+      - value: "newest"
+        label:
+          en_US: "Newest first"
+      - value: "highest_pay"
+        label:
+          en_US: "Highest posted pay first"
+  - name: limit
+    type: number
+    required: false
+    label:
+      en_US: "Number of results"
+    human_description:
+      en_US: "How many jobs to return (1 to 25)."
+    llm_description: "How many jobs to return (1 to 25). Default 10."
+    form: llm
+    default: 10
+    min: 1
+    max: 25
+    precision: 0
+extra:
+  python:
+    source: tools/search_healthcare_jobs.py

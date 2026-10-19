@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">CareJobs.Now icon</title>
+  <desc id="desc">A soft cross made of four round lobes. One solid shape.</desc>
+  <style>.brand-ink { fill: hsl(var(--primary, 354.7 61.3% 46.7%)); }</style>
+  <rect width="128" height="128" rx="24" fill="#ffffff"/>
+  <path fill-rule="evenodd" class="brand-ink" fill="hsl(354.7, 61.3%, 46.7%)" d="M42.1 42.1A22 22 0 1 1 85.9 42.1A22 22 0 1 1 85.9 85.9A22 22 0 1 1 42.1 85.9A22 22 0 1 1 42.1 42.1Z"/>
+</svg>

@@ -1,0 +1,21 @@
+identity:
+  author: "yumaheymans"
+  name: "carejobs"
+  label:
+    en_US: "CareJobs.Now Healthcare Jobs"
+  description:
+    en_US: "Search open US healthcare jobs, posted pay, employers and job-market stats from CareJobs.Now, a free healthcare job board. No API key needed."
+  icon: "icon.svg"
+  tags:
+    - search
+    - business
+tools:
+  - tools/search_healthcare_jobs.yaml
+  - tools/get_healthcare_pay.yaml
+  - tools/get_healthcare_job_market.yaml
+  - tools/get_healthcare_jobs_by_state.yaml
+  - tools/list_healthcare_employers.yaml
+  - tools/get_healthcare_employer.yaml
+extra:
+  python:
+    source: provider/carejobs.py
