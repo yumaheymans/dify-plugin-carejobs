@@ -76,7 +76,7 @@ parameters:
       en_US: "Employer"
     human_description:
       en_US: "Optional. With an employer: its pay overall and by kind of job. With a kind too: its pay for that job."
-    llm_description: "An employer, AI-training program or job board: its slug (for example 'hca-healthcare', 'kaiser-permanente') or its name. List Healthcare Employers finds the slugs."
+    llm_description: "An employer, AI-training program or job board: its slug (for example 'kaiser-permanente', 'cvs-health') or its name. List Healthcare Employers finds the slugs."
     form: llm
 extra:
   python:

@@ -53,7 +53,7 @@ For example, Search Healthcare Jobs with `kind` set to `nurses`, `state` set to 
 set to 5 returns five Texas nursing jobs. Use the text output in an LLM node, or read the JSON
 output in later nodes.
 
-Employers are identified by a slug such as `kaiser-permanente` or `hca-healthcare`. Use List
+Employers are identified by a slug such as `kaiser-permanente` or `cvs-health`. Use List
 Healthcare Employers to find a slug, or pass the employer name.
 
 ## Connection requirements

@@ -84,8 +84,8 @@ parameters:
     label:
       en_US: "Employer"
     human_description:
-      en_US: "An employer, AI-training program or job board: its slug (for example hca-healthcare) or its name."
-    llm_description: "An employer, AI-training program or job board: its slug (for example 'hca-healthcare', 'kaiser-permanente') or its name. List Healthcare Employers finds the slugs."
+      en_US: "An employer, AI-training program or job board: its slug (for example cvs-health) or its name."
+    llm_description: "An employer, AI-training program or job board: its slug (for example 'kaiser-permanente', 'cvs-health') or its name. List Healthcare Employers finds the slugs."
     form: llm
   - name: state
     type: string
